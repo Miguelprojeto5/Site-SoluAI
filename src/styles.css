@@ -1,0 +1,234 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-elevated: var(--card-elevated);
+  --color-border: var(--border);
+  --color-border-hi: var(--border-hi);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-dim: var(--dim);
+  --color-amber: var(--amber);
+  --color-amber-dim: var(--amber-dim);
+  --color-amber-glow: var(--amber-glow);
+  --color-blue: var(--blue);
+  --color-blue-mid: var(--blue-mid);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-primary: var(--amber);
+  --color-primary-foreground: #fff;
+
+  --shadow-amber-sm: 0 0 0 1px var(--amber-dim), 0 0 20px var(--amber-glow);
+  --shadow-amber-md: 0 0 0 1px var(--amber-dim), 0 0 28px var(--amber-glow), 0 0 60px rgba(239, 159, 39, 0.06);
+  --shadow-amber-lg: 0 0 0 1px var(--amber-dim), 0 0 40px var(--amber-glow), 0 0 80px rgba(239, 159, 39, 0.06);
+  --shadow-amber-xl: 0 0 0 1px var(--amber-dim), 0 0 60px var(--amber-glow), 0 0 120px rgba(239, 159, 39, 0.1);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: #111318;
+  --foreground: #ffffff;
+  --card: #1a1d24;
+  --card-elevated: #20242d;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-hi: rgba(255, 255, 255, 0.16);
+
+  --muted: rgba(255, 255, 255, 0.04);
+  --muted-foreground: rgba(255, 255, 255, 0.5);
+  --dim: rgba(255, 255, 255, 0.22);
+
+  --amber: #EF9F27;
+  --amber-dim: #C96A1A;
+  --amber-glow: rgba(239, 159, 39, 0.18);
+
+  --blue: #185FA5;
+  --blue-mid: #378ADD;
+
+  --success: #38B48B;
+  --danger: #E24B4A;
+
+  /* Responsive Hero Banner palette */
+  --bg-0: #09090b;
+  --bg-100: #18181b;
+  --bg-200: #27272a;
+  --bg-300: #3f3f46;
+  --text-100: #fafafa;
+  --text-200: #e4e4e7;
+  --text-300: #a1a1aa;
+  --text-400: #71717a;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dark {
+  /* same — site is always dark */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background: var(--background);
+    color: var(--foreground);
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(239, 159, 39, 0.3);
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Premium amber neon */
+  .text-amber {
+    color: var(--amber);
+  }
+  .bg-amber {
+    background: var(--amber);
+  }
+  .bg-amber-dim {
+    background: var(--amber-dim);
+  }
+
+  .glow-amber {
+    box-shadow: var(--shadow-amber-md);
+  }
+  .glow-amber-lg {
+    box-shadow: var(--shadow-amber-lg);
+  }
+
+  .text-glow-amber {
+    text-shadow: 0 0 24px rgba(239, 159, 39, 0.45), 0 0 48px rgba(239, 159, 39, 0.2);
+  }
+
+  /* 1px gradient borders for cards */
+  .border-gradient {
+    position: relative;
+    background: var(--card);
+    border-radius: 16px;
+  }
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(239, 159, 39, 0.35),
+      rgba(255, 255, 255, 0.06) 40%,
+      rgba(55, 138, 221, 0.25) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .radial-amber {
+    background: radial-gradient(ellipse at center, rgba(239, 159, 39, 0.12) 0%, transparent 65%);
+  }
+
+  /* Marquee for carousels */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+  .animate-marquee-slow {
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-pause:hover .animate-marquee,
+  .marquee-pause:hover .animate-marquee-slow {
+    animation-play-state: paused;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  .animate-blink {
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-core {
+    0%,
+    100% {
+      r: 9;
+    }
+    50% {
+      r: 11;
+    }
+  }
+  .animate-pulse-core {
+    animation: pulse-core 3s ease-in-out infinite;
+  }
+
+  @keyframes void-pulse {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  .animate-void {
+    animation: void-pulse 1.5s ease-in-out infinite;
+  }
+}

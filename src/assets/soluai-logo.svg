@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 90" width="380" height="90">
+  <!-- Símbolo -->
+  <g transform="translate(12, 5)">
+    <!-- Nó central -->
+    <circle cx="40" cy="40" r="9" fill="#EF9F27"/>
+
+    <!-- Linhas cardinais -->
+    <line x1="40" y1="31" x2="40" y2="16" stroke="#EF9F27" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+    <line x1="40" y1="49" x2="40" y2="64" stroke="#EF9F27" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+    <line x1="31" y1="40" x2="16" y2="40" stroke="#EF9F27" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+    <line x1="49" y1="40" x2="64" y2="40" stroke="#EF9F27" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Diagonais sutis -->
+    <line x1="34" y1="34" x2="22" y2="22" stroke="#EF9F27" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="46" y1="34" x2="58" y2="22" stroke="#EF9F27" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="34" y1="46" x2="22" y2="58" stroke="#EF9F27" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="46" y1="46" x2="58" y2="58" stroke="#EF9F27" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Nós satélite -->
+    <circle cx="40" cy="13" r="5" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+    <circle cx="40" cy="67" r="5" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+    <circle cx="13" cy="40" r="5" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+    <circle cx="67" cy="40" r="5" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text
+    x="102"
+    y="59"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="800"
+    font-size="48"
+    letter-spacing="-1"
+    fill="#ffffff">Solu</text>
+  <text
+    x="228"
+    y="59"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+    font-weight="400"
+    font-style="italic"
+    font-size="48"
+    letter-spacing="-1"
+    fill="#EF9F27">AI</text>
+</svg>
